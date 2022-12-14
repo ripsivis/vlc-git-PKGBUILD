@@ -102,7 +102,7 @@ _name=vlc
 conflicts=("${_name}" 'vlc-dev' 'vlc-plugin' 'vlc-stable-git')
 provides=("${_name}=${pkgver}")
 options=(debug !emptydirs)
-source=('git+https://github.com/videolan/vlc.git'
+source=('git+https://code.videolan.org/videolan/vlc.git'
         'vlc-live-media-2021.patch'
         'update-vlc-plugin-cache.hook')
 b2sums=('SKIP'
