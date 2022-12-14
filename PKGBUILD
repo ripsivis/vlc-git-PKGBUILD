@@ -1,4 +1,4 @@
-# Maintainer: Andrew Crerar <crerar@archlinux.org>
+# Maintainer: Onur Ankut <onurankut123@gmail.com> 
 # Contributor: Rob McCathie <korrode at gmail>
 # Contributor: Giovanni Scafora <giovanni@archlinux.org>
 # Contributor: Sarah Hay <sarahhay@mb.sympatico.ca>
@@ -7,6 +7,7 @@
 # Contributor: graysky <graysky at archlinux dot us>
 # Contributor: Arkham <arkham at archlinux dot us>
 # Contributor: MacWolf <macwolf at archlinux dot de>
+# Contributor: Andrew Crerar <crerar@archlinux.org>
 
 pkgname=vlc-git
 pkgver=4.0.0.r20473.g3a08825c8a
@@ -15,7 +16,7 @@ pkgdesc="A multi-platform MPEG, VCD/DVD, and DivX player (GIT Version)"
 url='https://www.videolan.org/vlc/'
 arch=('i686' 'x86_64')
 license=('LGPL2.1' 'GPL2')
-depends=('a52dec' 'libdvbpsi' 'libxpm' 'libdca' 'libproxy' 'lua52'
+depends=('a52dec' 'libdvbpsi' 'libxpm' 'libdca' 'libproxy' 'lua'
          'libmatroska' 'taglib' 'libmpcdec' 'ffmpeg' 'faad2' 'libupnp' 'libmad'
          'libmpeg2' 'xcb-util-keysyms' 'libtar' 'libxinerama' 'libsecret'
          'libarchive' 'qt5-base' 'qt5-x11extras' 'qt5-svg' 'freetype2'
@@ -132,10 +133,8 @@ build() {
   export CFLAGS+=" -I/usr/include/samba-4.0 -ffat-lto-objects"
   export CPPFLAGS+=" -I/usr/include/samba-4.0"
   export CXXFLAGS+=" -std=c++11"
-
-  # upstream doesn't support lua 5.4 yet: https://trac.videolan.org/vlc/ticket/25036
-  export LUAC=/usr/bin/luac5.2
-  export LUA_LIBS="$(pkg-config --libs lua5.2)"
+  export LUAC=/usr/bin/luac
+  export LUA_LIBS="$(pkg-config --libs lua)"
   export RCC=/usr/bin/rcc-qt5
   export PKG_CONFIG_PATH="/usr/lib/pkgconfig/:$PKG_CONFIG_PATH"
 
